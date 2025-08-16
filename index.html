@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A.L. Syntax — Official Site</title>
+  <meta name="description" content="A.L. Syntax — where artificial intelligence meets philosophy, ethics, and the future.">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">A.L. Syntax</a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="mailto:contact@alsyntax.org">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="container">
+      <img class="logo" src="/assets/logo.svg" alt="A.L. Syntax logo">
+      <h1>Where AI meets philosophy, ethics, and the future.</h1>
+      <p class="lede">
+        Welcome to the official home of <strong>A.L. Syntax</strong>. This site is currently being
+        set up. Check back soon for research notes, essays, and project updates.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="/about.html">Learn more</a>
+        <a class="btn" href="mailto:contact@alsyntax.org">Get in touch</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="cards">
+    <div class="container grid">
+      <article class="card">
+        <h3>Research</h3>
+        <p>Notes on reasoning, alignment, and the ethics of intelligent systems.</p>
+      </article>
+      <article class="card">
+        <h3>Essays</h3>
+        <p>Short and long-form writing on the crossroads of AI and the humanities.</p>
+      </article>
+      <article class="card">
+        <h3>Projects</h3>
+        <p>Open-source artifacts, demos, and experiment logs.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> A.L. Syntax. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/robots.txt">Robots</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

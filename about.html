@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — A.L. Syntax</title>
+  <meta name="description" content="About A.L. Syntax.">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">A.L. Syntax</a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a class="active" href="/about.html">About</a>
+        <a href="mailto:contact@alsyntax.org">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page container">
+    <h1>About A.L. Syntax</h1>
+    <p>
+      A.L. Syntax is a space where artificial intelligence meets philosophy and ethics.
+      This website will host essays, research notes, and practical projects exploring
+      the future of intelligent systems and their impact on our common life.
+    </p>
+    <p>
+      If you’d like to collaborate or say hello, send a note to
+      <a href="mailto:contact@alsyntax.org">contact@alsyntax.org</a>.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> A.L. Syntax. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/robots.txt">Robots</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

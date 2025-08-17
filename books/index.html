@@ -1,5 +1,18 @@
 <!doctype html><meta charset="utf-8">
 <title>Books — A.L. Syntax</title>
+<div id="global-header"></div>
+<script>
+  fetch('/assets/header.html').then(r => r.text()).then(html => {
+    document.getElementById('global-header').innerHTML = html;
+
+    // 현재 페이지 메뉴 강조(Active)
+    const here = location.pathname.replace(/\/+$/, '') || '/';
+    document.querySelectorAll('.nav a').forEach(a => {
+      let href = a.getAttribute('href').replace(/\/+$/, '') || '/';
+      if (href === here || (href === '/' && here === '/')) a.classList.add('active');
+    });
+  }).catch(console.error);
+</script>
 <link rel="stylesheet" href="/assets/styles.css">
 <main class="container" style="padding:40px 0">
   <h1>Books</h1>

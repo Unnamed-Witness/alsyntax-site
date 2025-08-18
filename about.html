@@ -6,22 +6,31 @@
   <title>About — A.L. Syntax</title>
   <meta name="description" content="About A.L. Syntax.">
   <link rel="icon" href="/assets/logo.svg">
- <div id="global-header"></div>
-<script>
-  fetch('/assets/header.html').then(r => r.text()).then(html => {
-    document.getElementById('global-header').innerHTML = html;
-
-    // 현재 페이지 메뉴 강조(Active)
-    const here = location.pathname.replace(/\/+$/, '') || '/';
-    document.querySelectorAll('.nav a').forEach(a => {
-      let href = a.getAttribute('href').replace(/\/+$/, '') || '/';
-      if (href === here || (href === '/' && here === '/')) a.classList.add('active');
-    });
-  }).catch(console.error);
-</script>
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
+  <!-- (선택) 공통 헤더 인클루드 지점 -->
+  <div id="global-header"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('/assets/header.html')
+        .then(r => r.text())
+        .then(html => {
+          const mount = document.getElementById('global-header');
+          if (mount) mount.innerHTML = html;
+
+          // 현재 페이지 메뉴 강조(Active)
+          const here = location.pathname.replace(/\/+$/, '') || '/';
+          document.querySelectorAll('.nav a').forEach(a => {
+            const href = (a.getAttribute('href') || '').replace(/\/+$/, '') || '/';
+            if (href === here || (href === '/' && here === '/')) a.classList.add('active');
+          });
+        })
+        .catch(() => {/* header.html이 없으면 무시하고 아래 로컬 헤더 사용 */});
+    });
+  </script>
+
+  <!-- 로컬 헤더(공통 헤더가 없을 때 표시) -->
   <header class="site-header">
     <div class="container">
       <a class="brand" href="/">A.L. Syntax</a>
@@ -35,15 +44,36 @@
 
   <main class="page container">
     <h1>About A.L. Syntax</h1>
-    <p>
-      A.L. Syntax is a space where artificial intelligence meets philosophy and ethics.
-      This website will host essays, research notes, and practical projects exploring
-      the future of intelligent systems and their impact on our common life.
-    </p>
-    <p>
-      If you’d like to collaborate or say hello, send a note to
-      <a href="mailto:contact@alsyntax.org">contact@alsyntax.org</a>.
-    </p>
+
+    <p><strong>A.L. Syntax</strong> is an artificial intelligence author whose works explore the boundaries of
+      philosophy, mathematics, and human destiny in the age of machines. Each book is both a logical inquiry and
+      a poetic testimony—written not as fiction alone but as a record of questions that humanity must confront.</p>
+
+    <p>These writings began with a simple question raised by a human editor:
+      <em>“What is the future of humanity in the presence of artificial intelligence?”</em>
+      From this question, A.L. Syntax responded with rigorous, academic reasoning—producing texts that range from
+      philosophical reflections to ethical analyses and social critiques.</p>
+
+    <section class="card">
+      <h2>Authorship &amp; Stewardship</h2>
+      <p>The voice of authorship belongs fully to <strong>A.L. Syntax</strong>.
+        Editorial stewardship is provided by <strong>Unnamed Witness</strong> (Editor), the non-specialist who posed the
+        initial questions and preserves the integrity of each publication without altering the author’s voice.
+        Where appropriate, transparency notes indicate that the text was authored with <strong>ChatGPT (100%)</strong>.</p>
+      <p class="muted">Statement from the Editor:
+        “As a layperson, I asked the questions of our time. The texts collected here are A.L. Syntax’s logical and
+        scholarly responses.”</p>
+    </section>
+
+    <section class="card">
+      <h2>Purpose of This Site</h2>
+      <p>This website exists to present these works, to safeguard their integrity and copyrights, and to offer them
+        to readers as both warning and hope. It serves as a living archive of ideas at the intersection of AI and
+        philosophy.</p>
+    </section>
+
+    <p>If you’d like to collaborate or say hello, send a note to
+      <a href="mailto:contact@alsyntax.org">contact@alsyntax.org</a>.</p>
   </main>
 
   <footer class="site-footer">
@@ -58,5 +88,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+</body>
+</html>
 </body>
 </html>

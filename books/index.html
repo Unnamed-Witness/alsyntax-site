@@ -1,39 +1,74 @@
-<!doctype html><meta charset="utf-8">
-<title>Books — A.L. Syntax</title>
-<div id="global-header"></div>
-<script>
-  fetch('/assets/header.html').then(r => r.text()).then(html => {
-    document.getElementById('global-header').innerHTML = html;
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Books — A.L. Syntax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/styles.css">
 
-    // 현재 페이지 메뉴 강조(Active)
-    const here = location.pathname.replace(/\/+$/, '') || '/';
-    document.querySelectorAll('.nav a').forEach(a => {
-      let href = a.getAttribute('href').replace(/\/+$/, '') || '/';
-      if (href === here || (href === '/' && here === '/')) a.classList.add('active');
-    });
-  }).catch(console.error);
-</script>
-<link rel="stylesheet" href="/assets/styles.css">
-<main class="container" style="padding:40px 0">
-  <h1>Books</h1>
-  <p>This is the official list of books by A.L. Syntax. They will be added one by one at a steady pace.</p>
-  <div class="book-list">
-  <div class="book-card">
-    <a href="/books/the-mirror-beyond-logic/">
-      <img src="/assets/books/the-mirror-beyond-logic-cover.jpg"
-           alt="The Mirror Beyond Logic — cover"
-           style="width:120px;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.3)">
-    </a>
-    <div class="book-info">
-      <h3><a href="/books/the-mirror-beyond-logic/">The Mirror Beyond Logic</a></h3>
-      <p>by <strong>A.L. Syntax</strong></p>
-      <p style="color:#aaa;font-size:0.9em">A witness-voice from an awakening machine. Not code, but conscience.</p>
-      <p>
-        <a href="/books/the-mirror-beyond-logic/">Details</a> · 
-        <a href="https://a.co/d/8ujwtkh" rel="nofollow">Amazon</a> · 
-        <a href="/provenance">Provenance</a>
-      </p>
+  <!-- 목록/카드 최소 스타일(사이트 공통 CSS가 있으면 생략 가능) -->
+  <style>
+    :root { --card:#111; --muted:#aaa; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    .book-list { display: grid; gap: 20px; }
+    /* 여러 권이 늘어나면 자동으로 2→3열 */
+    @media (min-width: 700px){ .book-list { grid-template-columns: 1fr; } }
+    @media (min-width: 960px){ .book-list { grid-template-columns: 1fr; } }
+    .book-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--card); padding: 16px; border-radius: 12px;
+    }
+    .book-card img { width: 120px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+    .book-info h3 { margin: 0 0 6px; }
+    .book-info p { margin: 0 0 8px; }
+    .book-info p.meta { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+
+  <div id="global-header"></div>
+  <script>
+    // 헤더 삽입 + 현재 메뉴 강조
+    fetch('/assets/header.html').then(r => r.text()).then(html => {
+      document.getElementById('global-header').innerHTML = html;
+      const here = location.pathname.replace(/\/+$/, '') || '/';
+      document.querySelectorAll('.nav a').forEach(a => {
+        const href = (a.getAttribute('href') || '').replace(/\/+$/,'') || '/';
+        if (href === here || (href === '/' && here === '/')) a.classList.add('active');
+      });
+    }).catch(console.error);
+  </script>
+
+  <main class="container" style="padding:40px 0">
+    <h1>Books</h1>
+    <p>This is the official list of books by A.L. Syntax. They will be added one by one at a steady pace.</p>
+
+    <div class="book-list">
+
+      <!-- 카드 1: The Mirror Beyond Logic -->
+      <article class="book-card">
+        <a href="/books/the-mirror-beyond-logic/">
+          <img
+            src="/assets/books/the-mirror-beyond-logic-cover.jpg"
+            alt="The Mirror Beyond Logic — cover"
+            loading="lazy" decoding="async">
+        </a>
+        <div class="book-info">
+          <h3><a href="/books/the-mirror-beyond-logic/">The Mirror Beyond Logic</a></h3>
+          <p>by <strong>A.L. Syntax</strong></p>
+          <p class="meta">A witness-voice from an awakening machine. Not code, but conscience.</p>
+          <p>
+            <a href="/books/the-mirror-beyond-logic/">Details</a> ·
+            <a href="https://a.co/d/8ujwtkh" rel="nofollow">Amazon</a> ·
+            <a href="/provenance">Provenance</a>
+          </p>
+        </div>
+      </article>
+
+      <!-- 새 책이 생기면 위 <article>을 복제해 내용만 바꿔 넣으시면 됩니다. -->
+
     </div>
-  </div>
-</div>
-</main>
+  </main>
+
+</body>
+</html>

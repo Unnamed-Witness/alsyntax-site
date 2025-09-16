@@ -1,4 +1,46 @@
-  <main>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Provenance — A.L. Syntax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cryptographic provenance and verification for A.L. Syntax works.">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <style>
+    :root{--fg:#111;--muted:#666;--card:#f7f7f8;--accent:#0a84ff}
+    body{color:var(--fg)}
+    main{max-width:880px;margin:48px auto;padding:0 16px}
+    h1{font-weight:700;font-size:clamp(28px,4vw,38px);margin:0 0 8px}
+    h2{margin:28px 0 8px}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border-radius:14px;padding:16px;border:1px solid #e6e6ea}
+    .kv{display:grid;grid-template-columns:140px 1fr;gap:8px 12px}
+    .kv div{padding:2px 0}
+    pre,code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+    pre{overflow:auto;background:#fff;border:1px solid #e6e6ea;border-radius:10px;padding:12px}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    /* TOC */
+    #toc.card{padding:14px}
+    #toc ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+    #toc li a{display:inline-block}
+  </style>
+</head>
+<body>
+
+  <div id="global-header"></div>
+  <script>
+    // include header + highlight current nav
+    fetch('/assets/header.html').then(r=>r.text()).then(html=>{
+      document.getElementById('global-header').innerHTML = html;
+      const here = location.pathname.replace(/\/+$/,'') || '/';
+      document.querySelectorAll('.nav a').forEach(a=>{
+        const href=(a.getAttribute('href')||'').replace(/\/+$/,'')||'/';
+        if(href===here) a.classList.add('active');
+      });
+    }).catch(console.error);
+  </script>
+<main>
     <h1>Provenance</h1>
     <p class="muted">Cryptographic verification for works authored by <strong>A.L. Syntax</strong>.</p>
 

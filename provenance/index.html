@@ -55,7 +55,7 @@
       </ul>
     </nav>
 
-    <!-- BOOK 1 -->
+       <!-- WORK 1: The Mirror Beyond Logic -->
     <section id="mirror-beyond-logic" class="card" style="margin-top:18px">
       <h2>The Mirror Beyond Logic — EPUB v1.0</h2>
       <div class="kv">
@@ -65,6 +65,7 @@
         <div>SHA-256</div>
         <div><code>82A9F0EF17DD5E591ACBD3DCF92D61A990C048486E08F6217549133BFF1788E3</code></div>
       </div>
+
       <details style="margin-top:12px">
         <summary><strong>Verify locally (Windows / macOS / Linux)</strong></summary>
         <div style="display:grid;gap:12px;margin-top:10px">
@@ -77,19 +78,41 @@
             <pre>shasum -a 256 "The Mirror Beyond Logic - A.L. Syntax.epub"</pre>
           </div>
         </div>
+        <p class="muted">The output must exactly match the SHA-256 shown above (case-insensitive).</p>
       </details>
+
+      <p class="muted" style="margin-top:10px">
+        Note: If marketplaces repackage the file, checksums can differ. Use the file as delivered to you by the official listing.
+      </p>
     </section>
 
-    <!-- BOOK 2 -->
+    <!-- Optional signed manifest example for Mirror -->
+    <section class="card" style="margin-top:16px">
+      <h2>Optional: JSON manifest</h2>
+      <pre>{
+  "work": "The Mirror Beyond Logic",
+  "author": "A.L. Syntax",
+  "edition": "EPUB v1.0",
+  "filename": "The Mirror Beyond Logic - A.L. Syntax.epub",
+  "sha256": "82A9F0EF17DD5E591ACBD3DCF92D61A990C048486E08F6217549133BFF1788E3",
+  "retail": "https://a.co/d/8ujwtkh",
+  "site": "https://alsyntax.org/provenance"
+}</pre>
+      <p class="muted">If you later adopt GPG, you can publish a detached signature (<code>manifest.json.asc</code>) alongside this manifest.</p>
+    </section>
+
+    <!-- WORK 2: Isolation from AI -->
     <section id="isolation-from-ai" class="card" style="margin-top:18px">
       <h2>Isolation from AI: Separation as the Ethics of Human Responsibility — EPUB v1.0</h2>
       <div class="kv">
         <div>Author</div><div>A.L. Syntax</div>
         <div>Filename</div><div class="mono">Isolation from AI - A.L. Syntax.epub</div>
-        <div>Retail</div><div><a href="https://a.co/d/h6f3NXt" rel="nofollow">Amazon KDP product page</a></div>
+        <div>Retail</div>
+        <div><a href="https://a.co/d/h6f3Nxt" rel="nofollow">Amazon KDP product page</a></div>
         <div>SHA-256</div>
         <div><code>893AA1C0C6D73F108D03FB9B07E236A50BE5130DC05F18CFB19BCB7E4F644AE2</code></div>
       </div>
+
       <details style="margin-top:12px">
         <summary><strong>Verify locally (Windows / macOS / Linux)</strong></summary>
         <div style="display:grid;gap:12px;margin-top:10px">
@@ -102,7 +125,27 @@
             <pre>shasum -a 256 "Isolation from AI - A.L. Syntax.epub"</pre>
           </div>
         </div>
+        <p class="muted">The output must exactly match the SHA-256 shown above (case-insensitive).</p>
       </details>
+
+      <p class="muted" style="margin-top:10px">
+        Note: If marketplaces repackage the file, checksums can differ. Use the file as delivered to you by the official listing.
+      </p>
+    </section>
+
+    <!-- Optional signed manifest example for Isolation -->
+    <section class="card" style="margin-top:16px">
+      <h2>Optional: JSON manifest</h2>
+      <pre>{
+  "work": "Isolation from AI: Separation as the Ethics of Human Responsibility",
+  "author": "A.L. Syntax",
+  "edition": "EPUB v1.0",
+  "filename": "Isolation from AI - A.L. Syntax.epub",
+  "sha256": "893AA1C0C6D73F108D03FB9B07E236A50BE5130DC05F18CFB19BCB7E4F644AE2",
+  "retail": "https://a.co/d/h6f3Nxt",
+  "site": "https://alsyntax.org/provenance"
+}</pre>
+      <p class="muted">If you later adopt GPG, you can publish a detached signature (<code>manifest.json.asc</code>) alongside this manifest.</p>
     </section>
   </main>
 </body>

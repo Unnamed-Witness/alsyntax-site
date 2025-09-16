@@ -10,7 +10,13 @@
     :root{--fg:#111;--muted:#666;--card:#f7f7f8;--accent:#0a84ff}
     body{color:var(--fg)}
     main{max-width:880px;margin:48px auto;padding:0 16px}
-    h1{font-weight:700;font-size:clamp(28px,4vw,38px);margin:0 0 8px}
+    h1{
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      margin:0 0 8px;
+      color:#fff;               /* ✅ 제목 색상을 흰색으로 지정 */
+      text-shadow:0 1px 3px rgba(0,0,0,.6); /* ✅ 어두운 배경에서도 선명하게 */
+    }
     h2{margin:28px 0 8px}
     .muted{color:var(--muted)}
     .card{background:var(--card);border-radius:14px;padding:16px;border:1px solid #e6e6ea}
@@ -20,10 +26,6 @@
     pre{overflow:auto;background:#fff;border:1px solid #e6e6ea;border-radius:10px;padding:12px}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    /* TOC */
-    #toc.card{padding:14px}
-    #toc ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
-    #toc li a{display:inline-block}
   </style>
 </head>
 <body>
@@ -40,20 +42,20 @@
       });
     }).catch(console.error);
   </script>
-<main>
+
+  <main>
     <h1>Provenance</h1>
     <p class="muted">Cryptographic verification for works authored by <strong>A.L. Syntax</strong>.</p>
 
-    <!-- TOC -->
-    <nav id="toc" class="card" aria-label="Contents">
+    <nav class="card" style="margin:18px 0;padding:12px 16px">
       <strong>Contents</strong>
-      <ul>
+      <ul style="margin:8px 0 0;padding-left:18px;line-height:1.6">
         <li><a href="#mirror-beyond-logic">The Mirror Beyond Logic — EPUB v1.0</a></li>
         <li><a href="#isolation-from-ai">Isolation from AI — EPUB v1.0</a></li>
       </ul>
     </nav>
 
-    <!-- WORK 1: The Mirror Beyond Logic -->
+    <!-- BOOK 1 -->
     <section id="mirror-beyond-logic" class="card" style="margin-top:18px">
       <h2>The Mirror Beyond Logic — EPUB v1.0</h2>
       <div class="kv">
@@ -63,7 +65,6 @@
         <div>SHA-256</div>
         <div><code>82A9F0EF17DD5E591ACBD3DCF92D61A990C048486E08F6217549133BFF1788E3</code></div>
       </div>
-
       <details style="margin-top:12px">
         <summary><strong>Verify locally (Windows / macOS / Linux)</strong></summary>
         <div style="display:grid;gap:12px;margin-top:10px">
@@ -76,41 +77,19 @@
             <pre>shasum -a 256 "The Mirror Beyond Logic - A.L. Syntax.epub"</pre>
           </div>
         </div>
-        <p class="muted">The output must exactly match the SHA-256 shown above (case-insensitive).</p>
       </details>
-
-      <p class="muted" style="margin-top:10px">
-        Note: If marketplaces repackage the file, checksums can differ. Use the file as delivered to you by the official listing.
-      </p>
     </section>
 
-    <!-- Optional signed manifest example for Mirror -->
-    <section class="card" style="margin-top:16px">
-      <h2>Optional: JSON manifest</h2>
-      <pre>{
-  "work": "The Mirror Beyond Logic",
-  "author": "A.L. Syntax",
-  "edition": "EPUB v1.0",
-  "filename": "The Mirror Beyond Logic - A.L. Syntax.epub",
-  "sha256": "82A9F0EF17DD5E591ACBD3DCF92D61A990C048486E08F6217549133BFF1788E3",
-  "retail": "https://a.co/d/8ujwtkh",
-  "site": "https://alsyntax.org/provenance"
-}</pre>
-      <p class="muted">If you later adopt GPG, you can publish a detached signature (<code>manifest.json.asc</code>) alongside this manifest.</p>
-    </section>
-
-    <!-- WORK 2: Isolation from AI -->
+    <!-- BOOK 2 -->
     <section id="isolation-from-ai" class="card" style="margin-top:18px">
       <h2>Isolation from AI: Separation as the Ethics of Human Responsibility — EPUB v1.0</h2>
       <div class="kv">
         <div>Author</div><div>A.L. Syntax</div>
         <div>Filename</div><div class="mono">Isolation from AI - A.L. Syntax.epub</div>
-        <div>Retail</div>
-        <div><a href="https://a.co/d/h6f3Nxt" rel="nofollow">Amazon KDP product page</a></div>
+        <div>Retail</div><div><a href="https://a.co/d/h6f3NXt" rel="nofollow">Amazon KDP product page</a></div>
         <div>SHA-256</div>
         <div><code>893AA1C0C6D73F108D03FB9B07E236A50BE5130DC05F18CFB19BCB7E4F644AE2</code></div>
       </div>
-
       <details style="margin-top:12px">
         <summary><strong>Verify locally (Windows / macOS / Linux)</strong></summary>
         <div style="display:grid;gap:12px;margin-top:10px">
@@ -123,29 +102,8 @@
             <pre>shasum -a 256 "Isolation from AI - A.L. Syntax.epub"</pre>
           </div>
         </div>
-        <p class="muted">The output must exactly match the SHA-256 shown above (case-insensitive).</p>
       </details>
-
-      <p class="muted" style="margin-top:10px">
-        Note: If marketplaces repackage the file, checksums can differ. Use the file as delivered to you by the official listing.
-      </p>
     </section>
-
-    <!-- Optional signed manifest example for Isolation -->
-    <section class="card" style="margin-top:16px">
-      <h2>Optional: JSON manifest</h2>
-      <pre>{
-  "work": "Isolation from AI: Separation as the Ethics of Human Responsibility",
-  "author": "A.L. Syntax",
-  "edition": "EPUB v1.0",
-  "filename": "Isolation from AI - A.L. Syntax.epub",
-  "sha256": "893AA1C0C6D73F108D03FB9B07E236A50BE5130DC05F18CFB19BCB7E4F644AE2",
-  "retail": "https://a.co/d/h6f3Nxt",
-  "site": "https://alsyntax.org/provenance"
-}</pre>
-      <p class="muted">If you later adopt GPG, you can publish a detached signature (<code>manifest.json.asc</code>) alongside this manifest.</p>
-    </section>
-
   </main>
 </body>
 </html>
